@@ -6,11 +6,11 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     public float moveSpeed;
+    public Vector2 inputVec;
 
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private Animator anim;
-    private Vector2 inputVec;
 
     private void Awake()
     {
