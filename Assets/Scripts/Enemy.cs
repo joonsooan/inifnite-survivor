@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isLive)
+        if (!isLive) // 적이 죽은 경우에 종료
             return;
 
         Vector2 dirVec = target.position - rb.position;
@@ -34,5 +34,10 @@ public class Enemy : MonoBehaviour
             return;
 
         sr.flipX = target.position.x < rb.position.x;
+    }
+
+    private void OnEnable()
+    {
+        target = GameManager.Instance.player.GetComponent<Rigidbody2D>();
     }
 }

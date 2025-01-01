@@ -9,7 +9,7 @@
                     "name": "Move",
                     "type": "Value",
                     "id": "bc969f93-8da7-47c3-916b-da0879bd6027",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -27,7 +27,7 @@
                     "name": "Fire",
                     "type": "Button",
                     "id": "46e5f6eb-952f-4674-a70b-cca3cdce47fe",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
