@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,15 +6,20 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float moveSpeed;
+    public float health;
+    public float maxHealth;
+    public RuntimeAnimatorController[] animController;
     public Rigidbody2D target;
 
-    private bool isLive = true;
+    private bool isLive;
     private Rigidbody2D rb;
+    private Animator anim;
     private SpriteRenderer sr;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
     }
 
@@ -39,5 +45,38 @@ public class Enemy : MonoBehaviour
     private void OnEnable()
     {
         target = GameManager.Instance.player.GetComponent<Rigidbody2D>();
+        isLive = true;
+        health = maxHealth;
+    }
+
+    public void Init(SpawnData data)
+    {
+        anim.runtimeAnimatorController = animController[data.spriteType];
+        moveSpeed = data.moveSpeed;
+        maxHealth = data.health;
+        health = data.health;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Bullet"))
+            return;
+
+        health -= collision.GetComponent<Bullet>().damage;
+
+        if (health > 0)
+        {
+            return;
+        }
+        else
+        {
+            Dead();
+        }
+    }
+
+    private void Dead()
+    {
+        gameObject.SetActive(false);
+        isLive = false;
     }
 }

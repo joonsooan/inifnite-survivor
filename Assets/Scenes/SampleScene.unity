@@ -4611,6 +4611,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeec1670cf392d049ab1c0bdc133eb99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: []
+  spawnData:
+  - spawnTime: 0.7
+    spriteType: 0
+    health: 10
+    moveSpeed: 1.2
+  - spawnTime: 0.5
+    spriteType: 1
+    health: 15
+    moveSpeed: 1.6
+  - spawnTime: 0.4
+    spriteType: 2
+    health: 25
+    moveSpeed: 2
+  - spawnTime: 0.6
+    spriteType: 3
+    health: 40
+    moveSpeed: 2.4
 --- !u!1 &230748227
 GameObject:
   m_ObjectHideFlags: 0
@@ -4773,6 +4791,7 @@ Transform:
   - {fileID: 403395854}
   - {fileID: 45358806}
   - {fileID: 216361073}
+  - {fileID: 981984561}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &345187499
@@ -13851,6 +13870,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3766960f49b4d44ea742516dc2465df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameTime: 0
+  maxGameTime: 0
   PoolManager: {fileID: 1720270259}
   player: {fileID: 345187501}
 --- !u!1 &964360503
@@ -13884,6 +13905,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 216361073}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &981984560
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 981984561}
+  - component: {fileID: 981984562}
+  m_Layer: 0
+  m_Name: Weapon 0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &981984561
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981984560}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 345187498}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &981984562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981984560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6fda11d432ed0242a872026735334c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  prefabId: 1
+  damage: 11
+  weaponCount: 2
+  rotateSpeed: 0
 --- !u!1 &1095876828
 GameObject:
   m_ObjectHideFlags: 0
@@ -18344,7 +18414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 2631934893687882574, guid: 19a8e5fbf94186b499ce0641719a5312, type: 3}
-  - {fileID: 5956429801796399924, guid: 8c1d16e677544ca4eb79bb4446bc9728, type: 3}
+  - {fileID: 8369690481422890606, guid: d5777ad74f437f640a570970dfce4e16, type: 3}
 --- !u!1 &1736252189
 GameObject:
   m_ObjectHideFlags: 0
