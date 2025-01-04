@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
 
     private bool isLive;
     private Rigidbody2D rb;
+    private Collider2D coll;
     private Animator anim;
     private SpriteRenderer sr;
     private WaitForFixedUpdate wait;
@@ -21,6 +22,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        coll = GetComponent<Collider2D>();
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
         wait = new WaitForFixedUpdate();
@@ -28,7 +30,7 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isLive) // 적이 죽은 경우에 종료
+        if (!isLive || anim.GetCurrentAnimatorStateInfo(0).IsName("Hit"))
             return;
 
         Vector2 dirVec = target.position - rb.position;
@@ -49,6 +51,10 @@ public class Enemy : MonoBehaviour
     {
         target = GameManager.Instance.player.GetComponent<Rigidbody2D>();
         isLive = true;
+        coll.enabled = true;
+        rb.simulated = true;
+        sr.sortingOrder = 2; // Order In Layer 2로 초기화
+        anim.SetBool("Dead", false);
         health = maxHealth;
     }
 
@@ -62,7 +68,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Bullet"))
+        if (!collision.CompareTag("Bullet") || !isLive) // 사망 로직 연속 실행 방지
             return;
 
         health -= collision.GetComponent<Bullet>().damage;
@@ -74,7 +80,13 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            Dead();
+            isLive = false;
+            coll.enabled = false;
+            rb.simulated = false;
+            sr.sortingOrder = 1; // Order In Layer 1로 감소
+            anim.SetBool("Dead", true);
+            GameManager.Instance.kill++;
+            GameManager.Instance.GetExp();
         }
     }
 

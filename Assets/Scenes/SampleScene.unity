@@ -10865,7 +10865,7 @@ MonoBehaviour:
     spriteType: 2
     health: 25
     moveSpeed: 2.4
-  - spawnTime: 0.6
+  - spawnTime: 0.2
     spriteType: 3
     health: 40
     moveSpeed: 2.8
@@ -32661,6 +32661,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameTime: 0
   maxGameTime: 0
+  level: 0
+  kill: 0
+  exp: 0
+  nextExp: 03000000050000000a0000006400000096000000d20000001801000068010000c201000058020000
   PoolManager: {fileID: 1720270259}
   player: {fileID: 345187501}
 --- !u!1 &964360503
