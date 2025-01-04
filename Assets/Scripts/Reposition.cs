@@ -10,7 +10,7 @@ public class Reposition : MonoBehaviour
     private void Awake()
     {
         coll = GetComponent<Collider2D>();
-        mapLength = 20;
+        mapLength = 32;
     }
 
     // 플레이어 위치에 따라 타일맵을 이동시키는 코드
