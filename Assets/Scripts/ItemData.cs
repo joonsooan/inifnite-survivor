@@ -13,7 +13,7 @@ public class ItemData : ScriptableObject
 
     public int itemId;
     public string itemName;
-    public string itemDesc;
+    public string itemDescription;
     public Sprite itemIcon;
 
     [Header("Level Data")]

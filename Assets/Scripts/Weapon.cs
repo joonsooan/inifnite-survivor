@@ -16,12 +16,7 @@ public class Weapon : MonoBehaviour
 
     private void Awake()
     {
-        player = GetComponentInParent<Player>();
-    }
-
-    private void Start()
-    {
-        Init();
+        player = GameManager.Instance.player;
     }
 
     private void Update()
@@ -42,26 +37,41 @@ public class Weapon : MonoBehaviour
                 }
                 break;
         }
-
-        // .. Test Code
-        if (Input.GetButtonDown("Jump"))
-        {
-            LevelUp(10, 1);
-        }
     }
 
     public void LevelUp(float damage, int count)
-    {   // 코드가 조금 야매 느낌이 있는데.. 일단은 이 상태로 진행하기
-        // 현재 상황: 근접 무기, 원거리 무기 레벨업이 함께 작동함, 관통력도 함께 올라감
+    {
         this.damage = damage;
+        // count
+        // 1. 근접 무기인 경우: 무기 개수 증가
+        // 2. 원거리 무기인 경우: 관통 횟수 증가
         this.count += count;
 
-        if (id == 0)
+        if (id == 0) // 근접 무기
             Batch();
     }
 
-    public void Init()
-    {
+    public void Init(ItemData data)
+    {   // data = Scriptable Object 데이터
+        // 기본 세팅
+        name = $"Weapon{data.itemId}";
+        transform.parent = player.transform;
+        transform.localPosition = Vector3.zero;
+
+        // 변수 세팅
+        id = data.itemId;
+        damage = data.baseDamage;
+        count = data.baseCount;
+
+        for (int i = 0; i < GameManager.Instance.PoolManager.prefabs.Length; i++)
+        {
+            if (data.projectile == GameManager.Instance.PoolManager.prefabs[i])
+            {
+                prefabId = i; // 발사체 프리팹 인덱스 설정
+                break;
+            }
+        }
+
         switch (id)
         {
             case 0:
