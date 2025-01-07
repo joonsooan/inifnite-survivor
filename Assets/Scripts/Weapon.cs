@@ -49,6 +49,8 @@ public class Weapon : MonoBehaviour
 
         if (id == 0) // 근접 무기
             Batch();
+
+        player.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
     }
 
     public void Init(ItemData data)
@@ -83,6 +85,8 @@ public class Weapon : MonoBehaviour
                 speed = 0.5f; // 원거리 무기 발사속도
                 break;
         }
+
+        player.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
     }
 
     private void Batch()

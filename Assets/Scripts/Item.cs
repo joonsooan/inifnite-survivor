@@ -49,12 +49,13 @@ public class Item : MonoBehaviour
 
                     weapon.LevelUp(nextDamage, nextCount);
                 }
+                level++;
                 break;
 
             case ItemData.ItemType.Glove:
             case ItemData.ItemType.Shoe:
                 if (level == 0)
-                {   // 기어 추가
+                {   // 기어 추가 겸 초기 기어 레벨업
                     GameObject newGear = new GameObject();
                     gear = newGear.AddComponent<Gear>();
                     gear.Init(data);
@@ -64,13 +65,13 @@ public class Item : MonoBehaviour
                     float nextRate = data.damages[level];
                     gear.LevelUp(nextRate);
                 }
+                level++;
                 break;
 
             case ItemData.ItemType.Heal:
+                GameManager.Instance.health = GameManager.Instance.maxHealth;
                 break;
         }
-
-        level++;
 
         if (level == data.damages.Length) // 마지막 레벨에 도달했을 때
         {
