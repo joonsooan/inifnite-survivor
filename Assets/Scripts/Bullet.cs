@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
         this.per = per;
 
         if (per > -1) // 관통이 무한이 아닐 때(원거리 무기일 경우)
-        {
+        {   // 총알 자체 속도 (연사속도 X)
             rb.velocity = dir * 15f;
         }
     }

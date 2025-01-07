@@ -54,7 +54,7 @@ public class Weapon : MonoBehaviour
     public void Init(ItemData data)
     {   // data = Scriptable Object 데이터
         // 기본 세팅
-        name = $"Weapon{data.itemId}";
+        name = $"Weapon {data.itemId}";
         transform.parent = player.transform;
         transform.localPosition = Vector3.zero;
 
@@ -80,7 +80,7 @@ public class Weapon : MonoBehaviour
                 break;
 
             default:
-                speed = 0.2f; // 원거리 무기 발사속도
+                speed = 0.5f; // 원거리 무기 발사속도
                 break;
         }
     }
