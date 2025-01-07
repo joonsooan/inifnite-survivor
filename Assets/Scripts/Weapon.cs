@@ -10,6 +10,7 @@ public class Weapon : MonoBehaviour
     public float damage;
     public int count;
     public float speed;
+    [HideInInspector] public float baseSpeed;
 
     private float timer;
     private Player player;
@@ -23,11 +24,11 @@ public class Weapon : MonoBehaviour
     {
         switch (id)
         {
-            case 0:
+            case 0: // 근접 무기
                 transform.Rotate(Vector3.back * speed * Time.deltaTime);
                 break;
 
-            default: // 근접 무기가 아닐 때
+            default: // 원거리 무기
                 timer += Time.deltaTime;
 
                 if (timer > speed)
@@ -78,11 +79,13 @@ public class Weapon : MonoBehaviour
         {
             case 0:
                 speed = 150; // 근접 무기 회전속도
+                baseSpeed = speed;
                 Batch();
                 break;
 
             default:
                 speed = 0.5f; // 원거리 무기 발사속도
+                baseSpeed = speed;
                 break;
         }
 

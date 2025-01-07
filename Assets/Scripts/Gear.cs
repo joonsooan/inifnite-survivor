@@ -50,11 +50,11 @@ public class Gear : MonoBehaviour
             switch (weapon.id)
             {
                 case 0: // 근접 무기 회전속도 증가
-                    weapon.speed = 150 + (150 * rate);
+                    weapon.speed = weapon.baseSpeed + (weapon.baseSpeed * rate);
                     break;
 
                 default: // 원거리 무기 연사속도 증가
-                    weapon.speed = 0.5f * (1f - rate);
+                    weapon.speed = weapon.baseSpeed * (1f - rate);
                     break;
             }
         }
@@ -62,7 +62,7 @@ public class Gear : MonoBehaviour
 
     private void SpeedUp()
     {   // 플레이어 이동속도 증가
-        float speed = 5f;
+        float speed = GameManager.Instance.player.baseMoveSpeed;
         GameManager.Instance.player.moveSpeed = speed + (speed * rate);
     }
 }

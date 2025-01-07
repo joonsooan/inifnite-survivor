@@ -11129,6 +11129,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: d4cde37df3b6b974a9636ee512d39531, type: 2}
   level: 0
   weapon: {fileID: 0}
+  gear: {fileID: 0}
 --- !u!114 &201557207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11430,7 +11431,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -181907988, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
+  m_Sprite: {fileID: -201829820, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11616,6 +11617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  baseMoveSpeed: 0
   inputVec: {x: 0, y: 0}
   scanner: {fileID: 0}
 --- !u!114 &345187502
@@ -22442,7 +22444,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -181907988, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
+  m_Sprite: {fileID: -966295699, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -33564,6 +33566,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: e30d9bf22cd7e924f8af62fd2723b442, type: 2}
   level: 0
   weapon: {fileID: 0}
+  gear: {fileID: 0}
 --- !u!1 &768046698
 GameObject:
   m_ObjectHideFlags: 0
@@ -34031,6 +34034,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 2f55a7ec2f6f5eb42816ea7a12a01347, type: 2}
   level: 0
   weapon: {fileID: 0}
+  gear: {fileID: 0}
 --- !u!114 &963229843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34453,7 +34457,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -181907988, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
+  m_Sprite: {fileID: -205726582, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -34771,6 +34775,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: df60f6f72104f514fac1734807f66c05, type: 2}
   level: 0
   weapon: {fileID: 0}
+  gear: {fileID: 0}
 --- !u!114 &1503590644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46047,6 +46052,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: bdd096ce4a55bf848ae3dc38219530ea, type: 2}
   level: 0
   weapon: {fileID: 0}
+  gear: {fileID: 0}
 --- !u!114 &1880589822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46198,7 +46204,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -181907988, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
+  m_Sprite: {fileID: 927338625, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
