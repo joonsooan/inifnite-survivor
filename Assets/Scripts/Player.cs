@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public float baseMoveSpeed;
     public Vector2 inputVec;
     public Scanner scanner;
+    public Hand[] hands;
 
     private Rigidbody2D rb;
     private SpriteRenderer sr;
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     {
         baseMoveSpeed = moveSpeed;
         scanner = GetComponent<Scanner>();
+        hands = GetComponentsInChildren<Hand>(true);
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();

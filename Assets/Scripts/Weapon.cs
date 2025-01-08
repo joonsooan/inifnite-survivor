@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static ItemData;
 
 public class Weapon : MonoBehaviour
 {
@@ -89,6 +90,11 @@ public class Weapon : MonoBehaviour
                 break;
         }
 
+        // Hand Set
+        Hand hand = player.hands[(int)data.itemType];
+        hand.sr.sprite = data.hand;
+        hand.gameObject.SetActive(true);
+
         player.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
     }
 
@@ -130,7 +136,9 @@ public class Weapon : MonoBehaviour
 
         // ÃÑ¾Ë »ý¼º
         Transform bullet = GameManager.Instance.PoolManager.Get(prefabId).transform;
-        bullet.position = transform.position;
+
+        bullet.position = player.hands[(int)ItemType.Range].muzzle.position;
+
         bullet.rotation = Quaternion.FromToRotation(Vector3.up, dir);
         bullet.GetComponent<Bullet>().Init(damage, count, dir);
     }
