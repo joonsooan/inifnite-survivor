@@ -13,6 +13,8 @@ public class Item : MonoBehaviour
 
     private Image icon;
     private TMP_Text textLevel;
+    private TMP_Text textName;
+    private TMP_Text textDescription;
 
     private void Awake()
     {
@@ -20,11 +22,33 @@ public class Item : MonoBehaviour
         icon.sprite = data.itemIcon; // 자식 이미지의 스프라이트 설정
         TMP_Text[] texts = GetComponentsInChildren<TMP_Text>(); // 텍스트 여러개 생성위한 배열
         textLevel = texts[0];
+        textName = texts[1];
+        textDescription = texts[2];
+        textName.text = data.itemName;
     }
 
-    private void LateUpdate()
+    private void OnEnable()
     {
-        textLevel.text = $"Lv.{level}";
+        textLevel.text = $"Lv.{level + 1}";
+
+        switch (data.itemType)
+        {
+            case ItemData.ItemType.Melee:
+            case ItemData.ItemType.Range:
+                textDescription.text = string.Format(
+                    data.itemDescription, data.damages[level] * 100, data.counts[level]);
+                break;
+
+            case ItemData.ItemType.Glove:
+            case ItemData.ItemType.Shoe:
+                textDescription.text = string.Format(
+                    data.itemDescription, data.damages[level] * 100);
+                break;
+
+            default: // 체력 회복
+                textDescription.text = string.Format(data.itemDescription);
+                break;
+        }
     }
 
     public void OnClick()
